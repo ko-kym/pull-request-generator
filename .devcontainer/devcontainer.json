@@ -1,0 +1,40 @@
+{
+    "name": "pull-request-generator-workspace",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "workspaceFolder": "/home/vscode/workspace",
+    "remoteUser": "vscode",
+    "postCreateCommand": "${containerWorkspaceFolder}/.devcontainer/setup.sh",
+    "runArgs": [
+        "--env-file",
+        ".devcontainer/devcontainer.env"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "files.eol": "\n",
+                "java.configuration.updateBuildConfiguration": "automatic",
+                "java.import.gradle.wrapper.enabled": true,
+                "liveshare.allowGuestDebugControl": true,
+                "liveshare.allowGuestTaskControl": true,
+                "liveshare.languages.allowGuestCommandControl": true,
+                "liveshare.publishWorkspaceInfo": true,
+                "liveshare.autoShareTerminals": true
+            },
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-gradle",
+                "streetsidesoftware.code-spell-checker",
+                "oderwat.indent-rainbow",
+                "GitHub.vscode-pull-request-github",
+                "mhutchie.git-graph",
+                "bierner.markdown-mermaid",
+                "ms-vsliveshare.vsliveshare"
+            ]
+        }
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/home/vscode/workspace,type=bind,consistency=cached"
+    ]
+}
